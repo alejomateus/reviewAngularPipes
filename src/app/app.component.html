@@ -1,0 +1,129 @@
+<div class="container mt-5">
+  <h1>Pipes</h1>
+  <hr />
+  <table class="table">
+    <thead class="thead-inverse">
+      <tr>
+        <th>Variable</th>
+        <th>Pipe</th>
+        <th>Result</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ name }}</td>
+        <td>uppercase</td>
+        <td>{{ name | uppercase }}</td>
+      </tr>
+      <tr>
+        <td>{{ name }}</td>
+        <td>lowercase</td>
+        <td>{{ name | lowercase }}</td>
+      </tr>
+      <tr>
+        <td>{{ name }}</td>
+        <td>slice</td>
+        <td>{{ name | slice: 3 }}</td>
+      </tr>
+      <tr>
+        <td>{{ array }}</td>
+        <td>slice</td>
+        <td>{{ array | slice: 0:3 }}</td>
+      </tr>
+      <tr>
+        <td>{{ PI }}</td>
+        <td>number:'3.0-0'</td>
+        <td>{{ PI | number: "3.0-0" }}</td>
+      </tr>
+      <tr>
+        <td>{{ PI }}</td>
+        <td>number:'1.0-2'</td>
+        <td>{{ PI | number: "1.0-2" }}</td>
+      </tr>
+      <tr>
+        <td>{{ a }}</td>
+        <td>percent</td>
+        <td>{{ a | percent }}</td>
+      </tr>
+      <tr>
+        <td>{{ a }}</td>
+        <td>percent:'2.2-4'</td>
+        <td>{{ a | percent: "2.2-4" }}</td>
+      </tr>
+      <tr>
+        <td>{{ salary }}</td>
+        <td>currency</td>
+        <td>{{ salary | currency: "EUR" }}</td>
+      </tr>
+      <tr>
+        <td>{{ salary }}</td>
+        <td>currency:'EUR':true:'4.0-0'</td>
+        <td>{{ salary | currency: "EUR":true:"4.0-0" }}</td>
+      </tr>
+      <tr>
+        <td>{{ salary }}</td>
+        <td>number:'.2-2'</td>
+        <td>{{ salary | number: ".2-2" }}</td>
+      </tr>
+      <tr>
+        <td>{{ promise }}</td>
+        <td>async</td>
+        <td>{{ promise | async }}</td>
+      </tr>
+      <tr>
+        <td>{{ date }}</td>
+        <td>date:'medium'</td>
+        <td>{{ date | date: "medium" }}</td>
+      </tr>
+      <tr>
+        <td>{{ date }}</td>
+        <td>date:'MMMM'</td>
+        <td>{{ date | date: "MMMM" }}</td>
+      </tr>
+      <tr>
+        <td>{{ completeName }}</td>
+        <td>capitalizado</td>
+        <td>{{ completeName | capitalizado }}</td>
+      </tr>
+      <tr>
+        <td>{{ completeName }}</td>
+        <td>capitalizado:false</td>
+        <td>{{ completeName | capitalizado: false }}</td>
+      </tr>
+      <tr>
+          <td> {{name}}</td>
+          <td>
+            password: {{active}}
+            <br>
+            <button
+            (click)="active =!active" 
+            type="button"
+            class="btn btn-outline-primary"
+            >
+            Active/Deactive
+            </button>  
+          </td>
+          <td>{{ name | password:active}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4>Slice</h4>
+  <ul>
+    <li *ngFor="let item of (array | slice: 5:20)">{{ item }}</li>
+  </ul>
+  <h4>JSON</h4>
+  <pre>
+  {{ heroe | json }}
+</pre
+  >
+  <h4>Youtube</h4>
+  <iframe
+    width="560"
+    height="315"
+    [src]="video | secureDom: 'https://www.youtube.com/embed/'"
+    frameborder="0"
+    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen
+  ></iframe>
+</div>
